@@ -1,0 +1,78 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Byte-compiled / optimized / DLL files (파이썬 컴파일 캐시)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging (빌드 및 배포 산출물)
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments (가상환경)
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment Variables & Secrets (민감한 설정 및 API 키)
+.env.local
+.env.*.local
+*.env
+
+# Unit test / coverage reporting (테스트 및 커버리지 결과물)
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# IDEs & Editors (에디터 설정 파일)
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating System Files (운영체제 메타데이터)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
