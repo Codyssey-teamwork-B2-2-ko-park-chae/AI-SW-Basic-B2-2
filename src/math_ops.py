@@ -31,10 +31,3 @@ def power(base: Number, exponent: Number) -> Number:
     """거듭제곱 값을 반환합니다."""
     return base ** exponent
 
-
-def calculate_average(numbers: Iterable[Number]) -> float:
-    """숫자 시퀀스의 산술 평균을 계산합니다. 빈 시퀀스일 경우 0.0을 반환합니다."""
-    num_list = list(numbers)
-    if not num_list:
-        return 0.0
-    return float(sum(num_list) / len(num_list))
