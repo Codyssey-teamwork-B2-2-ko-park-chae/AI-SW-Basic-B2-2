@@ -1,5 +1,5 @@
 import pytest
-from src.utils.math_ops import (
+from src.math_ops import (
     add,
     subtract,
     multiply,
