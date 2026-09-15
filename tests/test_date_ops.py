@@ -2,7 +2,7 @@
 
 from datetime import datetime
 
-import src.date_ops as date_ops
+import src.utils.date_ops as date_ops
 
 
 def test_format_iso_date_with_datetime():
@@ -32,3 +32,15 @@ def test_add_days_to_date_with_negative_days():
     dt = datetime(2024, 3, 1, 10, 30)
 
     assert date_ops.add_days_to_date(dt, -1) == datetime(2024, 2, 29, 10, 30)
+
+
+def test_add_days_to_date_across_year():
+    dt = datetime(2024, 12, 31, 23, 59)
+
+    assert date_ops.add_days_to_date(dt, 1) == datetime(2025, 1, 1, 23, 59)
+
+
+def test_add_zero_days_to_date():
+    dt = datetime(2025, 1, 15, 10, 30)
+
+    assert date_ops.add_days_to_date(dt, 0) == dt
