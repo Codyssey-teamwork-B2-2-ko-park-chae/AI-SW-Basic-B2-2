@@ -11,3 +11,6 @@ def format_iso_date(dt: Optional[datetime] = None) -> str:
 def add_days_to_date(dt: datetime, days: int) -> datetime:
     """날짜에 일수를 더합니다."""
     return dt + timedelta(days=days)
+
+
+# Rever 용 주석 입니다.
