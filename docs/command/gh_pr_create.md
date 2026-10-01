@@ -1,100 +1,66 @@
-# `gh pr create`
+# GitHub PR 생성 명령어
 
-이 문서는 [협업 가이드](../CONTRIBUTING.md)의 규칙에 맞춰 GitHub CLI로 PR을 생성하는 방법을 설명한다.
+[협업 가이드](../CONTRIBUTING.md)에 맞춰 저장소 루트에서 실행합니다. GitHub CLI(`gh`)가 설치되어 있어야 하며, 로그인 상태는 `gh auth status`로 확인합니다. 필요하면 `gh auth login`으로 로그인합니다.
 
-## PR 생성 전 확인
+## 생성 전 확인
 
-- PR의 대상 브랜치는 `main`으로 지정한다. `main`에는 직접 push하지 않는다.
-- 작업 브랜치는 `<type>/<member_name>-<feature-name>` 형식을 사용한다.
-  - 예: `feature/kim-login`, `refactor/kim-package-structure`, `fix/lee-strip-edge-case`
-- PR 본문 첫 줄에는 `Closes #<이슈번호>` 또는 `Fixes #<이슈번호>`를 작성한다.
-- 본문은 변경 사항(What), 변경 이유(Why), 테스트 및 검증 방법(How)을 포함한다.
-- PR을 생성하기 전에 로컬 테스트가 모두 통과하는지 확인한다.
+- 작업 브랜치는 `<type>/<member_name>-<feature-name>` 형식을 사용합니다. 예: `feature/chae-advanced-strings`, `refactor/ko-package-structure`, `fix/chae-strip-whitespace`.
+- `main`을 대상으로 PR을 만들고, 본문에는 실제 이슈 번호로 `Closes #<이슈번호>` 또는 `Fixes #<이슈번호>`를 작성합니다.
+- [PR 템플릿](../../.github/pull_request_template.md)의 연결 이슈, What / Why / How, 리뷰 요청 항목을 포함합니다.
+- 검증 체크박스는 직접 수행한 항목만 체크합니다.
 
 ```bash
-pytest
-git push -u origin feature/kim-login
+python -m pytest tests/ -q
+git push -u origin feature/chae-advanced-strings
 ```
 
-## 한 줄 명령어
+## 본문을 직접 지정하기
 
-다음 예시는 Bash의 `$'...'` 문자열을 사용해 본문의 줄바꿈을 표현한다.
-
-```bash
-gh pr create --base main --head feature/kim-login --title "feat: 로그인 기능 추가" --body $'Closes #123\n\n## 변경 사항 (What)\n- 로그인 기능을 추가했습니다.\n\n## 변경 이유 및 배경 (Why)\n- 사용자 인증이 필요합니다.\n\n## 테스트 및 검증 방법 (How)\n- [x] 로컬 단위 테스트 실행 (`pytest`)\n- [x] 주요 엣지 케이스 검증\n- [x] `main` 브랜치와 충돌 여부 확인\n\n## 리뷰어에게 요청할 점 (Notes for Reviewer)\n- 인증 실패 처리 방식을 중점적으로 확인해 주세요.'
-```
-
-## 여러 줄 명령어
+아래 브랜치와 이슈 번호는 예시입니다. 실제 작업 브랜치·이슈로 바꿔 실행합니다. `--body-file -`는 표준 입력에서 본문을 읽으므로 줄바꿈을 그대로 전달할 수 있습니다. [GitHub CLI 공식 문서](https://cli.github.com/manual/gh_pr_create)
 
 ```bash
 gh pr create \
   --base main \
-  --head feature/kim-login \
-  --title "feat: 로그인 기능 추가" \
-  --body "$(cat <<'EOF'
-Closes #123
+  --head feature/chae-advanced-strings \
+  --title "feat: 문자열 슬러그와 단어 축약 기능 추가" \
+  --body-file - <<'EOF'
+Closes #18
+
+## 연결 이슈 (Linked Issue)
+- #18
 
 ## 변경 사항 (What)
-- 로그인 기능을 추가했습니다.
+- 문자열 슬러그 변환과 단어 수 기준 축약 기능을 추가했습니다.
 
 ## 변경 이유 및 배경 (Why)
-- 사용자 인증이 필요합니다.
+- 문자열 처리 유틸리티의 사용 범위를 확장합니다.
 
 ## 테스트 및 검증 방법 (How)
-- [x] 로컬 단위 테스트 실행 (`pytest`)
-- [x] 주요 엣지 케이스 검증
-- [x] `main` 브랜치와 충돌 여부 확인
+- [ ] 로컬 단위 테스트 실행 (`python -m pytest tests/ -q`)
+- [ ] 빈 문자열 및 단어 수 경계 사례 검증
+- [ ] main 브랜치와 충돌 여부 확인
 
 ## 리뷰어에게 요청할 점 (Notes for Reviewer)
-- 인증 실패 처리 방식을 중점적으로 확인해 주세요.
+- 문자열 변환 규칙과 접미사 처리 방식을 확인해 주세요.
 EOF
-)"
 ```
 
-## `--fill`로 커밋 정보 사용하기
+## 템플릿 또는 커밋 정보로 작성하기
 
-현재 브랜치의 커밋 정보로 PR 제목과 본문을 자동 작성하려면 `--fill`을 사용한다.
+템플릿을 편집기로 열어 작성하려면 다음 명령을 사용합니다.
 
 ```bash
-gh pr create --base main --head feature/kim-login --fill
+gh pr create --base main --template .github/pull_request_template.md --editor
 ```
 
-예를 들어 최근 커밋 메시지가 다음과 같다면,
-
-```text
-feat: 로그인 기능 추가
-
-JWT 기반 로그인 API를 구현했습니다.
-```
-
-다음과 같은 제목과 본문으로 PR이 생성된다.
-
-```text
-제목: feat: 로그인 기능 추가
-본문: JWT 기반 로그인 API를 구현했습니다.
-```
-
-`--fill`은 커밋 메시지로 제목과 본문을 채울 뿐, 필수 이슈 연결과 What/Why/How 구조를 자동으로 보장하지 않는다. 다음처럼 편집기를 열어 본문 첫 줄과 필수 항목을 확인하고 보완한다.
+현재 브랜치의 커밋 정보로 제목과 본문을 채우려면 `--fill`을 사용합니다. 여러 커밋이 있으면 결과가 달라질 수 있으며, 이슈 연결과 What / Why / How 구조를 자동으로 보장하지 않습니다. 편집기에서 해당 항목을 보완합니다.
 
 ```bash
-gh pr create --base main --head feature/kim-login --fill --editor
+gh pr create --base main --fill --editor
 ```
 
-PR 생성에 성공하면 터미널에는 다음과 비슷한 결과가 출력된다.
+생성에 성공하면 PR URL이 출력됩니다. 최소 1명의 팀원 승인, 로컬 테스트 통과, 미해결 리뷰 코멘트 해소를 확인한 뒤 병합합니다. 마지막 두 항목은 팀 운영 기준이며 서버에서 자동으로 강제하는 설정과 구분합니다.
 
-```text
-Creating pull request for feature/kim-login into main in octocat/my-app
+## 템플릿 경로
 
-https://github.com/octocat/my-app/pull/42
-```
-
-## 생성 후 병합 요건
-
-- 최소 1명 이상의 팀원 승인을 받는다.
-- 로컬 테스트(`pytest`)가 모두 통과했는지 확인한다.
-- 미해결된 Review Conversation이 없어야 한다.
-- 모든 요건을 충족한 뒤 PR을 통해 `main`에 병합한다.
-
-## PR 템플릿 경로 참고
-
-협업 가이드는 PR 템플릿 경로를 `.github/pull_request_template.md`로 안내하지만, 현재 저장소의 템플릿 파일은 `.github/ISSUE_TEMPLATE/pull_request_template.md`에 있다. 자동 PR 템플릿을 사용하려면 파일 경로와 본문 첫 줄 규칙을 협업 가이드에 맞게 정리해야 한다. 위 명령어 예시는 경로가 정리되기 전에도 규칙을 지킬 수 있도록 본문을 직접 지정한다.
+현재 PR 템플릿은 `.github/pull_request_template.md`입니다. 과거 경로인 `.github/ISSUE_TEMPLATE/pull_request_template.md`로 안내하지 않습니다. 템플릿의 `Closes #<issue_number>` 자리표시자를 실제 이슈 번호로 바꾸고, YAML 메타데이터를 PR 본문에 그대로 남기지 않도록 확인합니다.
