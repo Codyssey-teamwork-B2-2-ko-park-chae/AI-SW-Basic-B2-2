@@ -1,0 +1,254 @@
+added in remote
+  their  100644 07436ee5dd89602f42358f2b75f8ced2fb9b8510 .github/ISSUE_TEMPLATE/feature_request.md
+@@ -0,0 +1,28 @@
++---
++name: Feature request
++about: Suggest an idea for this project
++title: ''
++labels: ''
++assignees: ''
++
++---
++
++---
++name: Feature Request
++about: 새로운 유틸리티 기능 또는 개선 작업 제안
++title: '[FEAT] '
++labels: enhancement
++assignees: ''
++---
++
++## 📌 기능 요구사항 (Goal)
++- 구현하고자 하는 유틸리티 기능 또는 리팩토링 목표를 명확히 작성합니다.
++
++## 📋 세부 작업 항목 (TODO)
++- [ ] 함수 시그니처 및 타입 힌트 정의
++- [ ] 핵심 로직 구현 및 예외 처리
++- [ ] 단위 테스트 작성 (`tests/`)
++- [ ] `__init__.py` 및 `README.md` 문서 업데이트
++
++## 💡 참고 사항 (Additional Context)
++- 관련 레퍼런스, 엣지 케이스 고려 사항 등을 작성합니다.
+added in remote
+  their  100644 a6681103e68a7d1cb3440c351d91fc0102ccbbe9 .github/ISSUE_TEMPLATE/pull_request_template.md
+@@ -0,0 +1,31 @@
++---
++name: pull_request_template
++about: Suggest an idea for this project
++title: ''
++labels: ''
++assignees: ''
++
++---
++
++## 연결 이슈 (Linked Issue)
++- Closes #<issue_number>
++
++---
++
++## 변경 사항 (What)
++- 어떤 기능/수정이 이루어졌는지 구체적으로 설명합니다.
++- 예: `math_ops.py`에 `calculate_average`, `safe_divide` 함수 추가 및 예외 처리 구현
++
++## 변경 이유 및 배경 (Why)
++- 이 변경이 왜 필요한지, 어떤 문제를 해결하는지 작성합니다.
++- 예: 0으로 나누는 연산 시 발생하는 ZeroDivisionError를 방지하고 기본값을 반환하도록 안정성 확보
++
++## 테스트 및 검증 방법 (How)
++- [ ] 로컬 단위 테스트 실행 (`pytest`)
++- [ ] 엣지 케이스(예: 빈 리스트, 음수 입력 등) 동작 검증
++- [ ] 브랜치 충돌 여부 사전 확인 (`git merge main` / rebase)
++
++---
++
++## 리뷰어에게 요청할 점 (Notes for Reviewer)
++- 코드 리뷰 시 특별히 확인받고 싶은 부분이나 설계 상의 고민을 적어주세요.
+added in remote
+  their  100644 1eafd0c906090784ba4d32436fae1ae0c71a3e97 docs/CONTRIBUTING.md
+@@ -0,0 +1,101 @@
++# 🤝 Contributing Guide (협업 가이드)
++
++우리 팀의 일관되고 안전한 Git 협업 및 코드 품질 유지를 위한 가이드라인입니다. 모든 팀원은 아래 규칙을 준수하여 작업합니다.
++
++---
++
++## 1. 브랜치 전략 (GitHub Flow)
++
++우리 팀은 간결하고 빠른 배포 주기와 협업 피드백을 위해 **GitHub Flow**를 적용합니다.
++
++### 💡 GitHub Flow 채택 이유 (3줄 요약)
++1. 복잡한 릴리즈/핫픽스 브랜치 분기 없이 `main`과 `feature` 브랜치만으로 직관적이고 가벼운 워크플로우를 유지할 수 있습니다.
++2. 모든 작업이 PR(Pull Request)을 거치므로 코드 리뷰와 자동화 테스트를 통한 사전 품질 검증이 확실합니다.
++3. `main` 브랜치를 항상 배포 가능한 안정 상태로 유지함으로써 팀 전체의 병합 충돌과 병목을 최소화합니다.
++
++### 브랜치 구성
++- `main` : 항상 안정적이고 테스트를 통과한 배포 가능 상태 (직접 push 금지, PR 병합 필수)
++- `feature/*` : 새로운 기능 개발 또는 개선 작업 단위 브랜치
++- `refactor/*` : 코드 구조 개선 및 파일 재배치 브랜치
++- `fix/*` : 버그 수정 브랜치
++
++---
++
++## 2. 브랜치 네이밍 규칙
++
++브랜치 이름은 작업 목적과 작업자를 명확히 식별할 수 있도록 아래 규칙을 따릅니다.
++
++`형식: <type>/<member_name>-<feature-name>`
++
++### 예시:
++- `feature/kim-math-utils` (팀원 Kim이 수학 유틸 개발)
++- `feature/lee-string-utils` (팀원 Lee가 문자열 유틸 개발)
++- `feature/park-date-utils` (팀원 Park이 날짜 유틸 개발)
++- `refactor/kim-package-structure` (팀원 Kim이 패키지 구조 리팩토링)
++- `fix/lee-strip-edge-case` (팀원 Lee가 공백 제거 엣지케이스 수정)
++
++---
++
++## 3. 커밋 메시지 컨벤션
++
++커밋 메시지는 변경 사항의 의도와 범위를 명확히 전달해야 합니다.
++
++### 기본 형식
++`type: subject`
++
++### Type 태그 정의
++- `feat:` 새로운 기능 추가
++- `fix:` 버그 수정
++- `docs:` 문서 수정 (README, docs 등)
++- `refactor:` 코드 리팩토링 (기능 변경 없는 구조 개선)
++- `test:` 테스트 코드 추가 또는 수정
++- `chore:` 빌드, 패키지 매니저, 기타 설정 변경
++
++### ⚠️ 금지되는 무의미한 커밋 메시지 (엄격 금지)
++아래와 같이 변경 대상이나 목적이 모호한 커밋 메시지는 반려 대상입니다:
++- `update`, `fix`, `temp`, `wip`, `final`, `asdf`
++- `edit file`, `bug fix`, `modify code` (구체적인 대상 및 이유 누락)
++
++---
++
++## 4. PR (Pull Request) 작성 규칙
++
++모든 작업은 PR을 통해 `main` 브랜치로 병합됩니다.
++
++1. **이슈 연동 필수**: PR 본문 첫 줄에 반드시 `Closes #<이슈번호>` 또는 `Fixes #<이슈번호>`를 명시합니다.
++2. **템플릿 준수**: `.github/pull_request_template.md`의 구조(What, Why, How)에 맞추어 성실히 작성합니다.
++3. **병합 요건**:
++   - 최소 1명 이상의 팀원 승인(Approve) 필수
++   - 로컬 테스트(`pytest`) 전원 통과 확인
++   - 미해결된 Review Conversation이 없을 것
++
++---
++
++## 5. 코드 리뷰 최소 품질 기준
++
++단순한 승인이 아닌, 실질적인 코드 품질 향상을 목표로 리뷰합니다.
++
++1. **"LGTM / 확인했습니다" 단독 작성 금지**:
++   - 반드시 특정 코드 라인(Line-by-line)을 지정하여 피드백을 남깁니다.
++   - 예외 처리 제안, 함수 네이밍, 타입 힌트, 성능/가독성 개선안, 엣지 케이스 등을 구체적으로 언급합니다.
++2. **상호작용 및 피드백 반영 기록**:
++   - PR 작성자는 리뷰어의 코멘트에 답글을 달고, 코드 수정 커밋을 추가하여 반영 내역을 증빙합니다.
++
++---
++
++## 6. 충돌 (Conflict) 대응 흐름
++
++병합 중 충돌이 발생할 경우 다음 절차를 따릅니다.
++
++1. **상황 공유**: 슬랙/디스코드/GitHub 코멘트를 통해 충돌 대상 팀원에게 상황을 알립니다.
++2. **로컬 해결**:
++   ```bash
++   git checkout feature/내브랜치
++   git fetch origin
++   git merge origin/main
++   # 충돌 파일 수동 편집 (충돌 마커 정리)
++   git add <충돌해결파일>
++   git commit -m "fix: resolve merge conflict with main"
++   git push origin feature/내브랜치
++   ```
++3. **기록 남기기**: 충돌 해결 즉시 `docs/conflict-resolution.md`에 충돌 상황, 마커 내용, 해결 전략을 문서화합니다.
+added in both
+  our    100644 039e0377f65f2e9ae48f534ef82e1b725406ccbc src/__init__.py
+  their  100644 2801c669c15a6137d397bb93873cf3623099b050 src/__init__.py
+@@ -1,3 +1,8 @@
++<<<<<<< .our
+ from src.string_ops import capitalize_words, reverse_string, strip_all_whitespace
+ 
+-__all__ = ["capitalize_words", "reverse_string", "strip_all_whitespace"]
+\ No newline at end of file
++__all__ = ["capitalize_words", "reverse_string", "strip_all_whitespace"]
++=======
++from src.utils.math_ops import add, calculate_average, divide, multiply, power, subtract
++__all__ = ["add", "subtract", "multiply", "divide", "power", "calculate_average"]
++>>>>>>> .their
+added in remote
+  their  100644 0dbd9e30f0089ea7d5022dbb27e93ea22bc275c0 src/math_ops.py
+@@ -0,0 +1,33 @@
++"""수학 및 통계 연산 유틸리티 모듈 (팀원 A 담당)."""
++
++from typing import Iterable, Union
++
++Number = Union[int, float]
++
++
++def add(a: Number, b: Number) -> Number:
++    """두 숫자의 합을 반환합니다."""
++    return a + b
++
++
++def subtract(a: Number, b: Number) -> Number:
++    """두 숫자의 차를 반환합니다."""
++    return a - b
++
++
++def multiply(a: Number, b: Number) -> Number:
++    """두 숫자의 곱을 반환합니다."""
++    return a * b
++
++
++def divide(a: Number, b: Number, default: Number = 0.0) -> Number:
++    """두 숫자의 나눗셈을 수행합니다. 0으로 나눌 경우 기본값을 반환합니다."""
++    if b == 0:
++        return default
++    return a / b
++
++
++def power(base: Number, exponent: Number) -> Number:
++    """거듭제곱 값을 반환합니다."""
++    return base ** exponent
++
+added in remote
+  their  100644 b9718605f105c4cda7377262745e791b180ada06 tests/test_math_ops.py
+@@ -0,0 +1,32 @@
++import pytest
++from src.utils.math_ops import (
++    add,
++    subtract,
++    multiply,
++    divide,
++    power,
++    calculate_average,
++)
++
++
++def test_basic_arithmetic():
++    assert add(10, 5) == 15
++    assert subtract(10, 5) == 5
++    assert multiply(4, 5) == 20
++    assert divide(10, 2) == 5.0
++
++
++def test_divide_by_zero():
++    assert divide(10, 0) == 0.0
++    assert divide(10, 0, default=-1) == -1
++
++
++def test_power():
++    assert power(2, 3) == 8
++    assert power(5, 0) == 1
++
++
++def test_calculate_average():
++    assert calculate_average([1, 2, 3, 4, 5]) == 3.0
++    assert calculate_average([]) == 0.0
++    assert calculate_average([10.0, 20.0]) == 15.0

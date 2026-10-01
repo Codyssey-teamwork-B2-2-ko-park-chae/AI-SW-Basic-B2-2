@@ -1,0 +1,103 @@
+* 0b45ff1 (HEAD -> docs/ko-document-update, origin/docs/ko-document-update) docs: Git 트러블슈팅 증빙 정리
+* 984909b docs: 충돌 해결 근거 기록
+* 0eb5cf8 docs: 협업 및 Git 명령 가이드 갱신
+* 6a88feb docs: README와 제출 인덱스 정비
+*   f8f9fd0 (origin/main, origin/HEAD, main, docs/ko-document-upddate) Merge pull request #28 from Codyssey-teamwork-B2-2-ko-park-chae/feature/chae-string-policy-edit
+|\
+| *   3df9461 (origin/feature/chae-string-policy-edit) Merge branch 'main' into feature/chae-string-policy-edit
+| |\
+| |/
+|/|
+* |   14c0463 Merge pull request #26 from Codyssey-teamwork-B2-2-ko-park-chae/feature/ko-string-policy-tabs
+|\ \
+| * | 9547205 (origin/feature/ko-string-policy-tabs, feature/ko-string/policy-tabs) docs: 문자열 정책을 스페이스·탭 제거로 변경
+* | | 815eea9 Merge pull request #24 from Codyssey-teamwork-B2-2-ko-park-chae/feature/ko-string-policy-move
+|\| |
+* | |   42dee7e Merge pull request #23 from Codyssey-teamwork-B2-2-ko-park-chae/feature/ko-string-policy-base
+|\ \ \
+| | | * e8e9b24 docs: 문자열 정책을 스페이스·탭·줄바꿈 제거로 변경
+| | |/
+| | * 1251d9b (origin/feature/ko-string-policy-move, feature/ko-string-policy-move) docs: move string policy and remove spaces only
+| |/
+| * d8d9a9e (origin/feature/ko-string-policy-base, feature/ko-string-policy-base) docs: add string policy conflict exercise
+|/
+*   ef6dc51 Merge pull request #20 from Codyssey-teamwork-B2-2-ko-park-chae/feature/park-test-suite
+|\
+| * 55bef12 (origin/feature/park-test-suite) test: add comprehensive test suite across all modules
+|/
+*   d3d4bc9 Merge pull request #19 from Codyssey-teamwork-B2-2-ko-park-chae/feature/chae-advanced-strings
+|\
+| *   8c0c9cd (origin/feature/chae-advanced-strings, feature/chae-advanced-strings) Merge branch 'main' into feature/chae-advanced-strings
+| |\
+| |/
+|/|
+* |   556a6c5 (refactor/ko-package-structure) Merge pull request #14 from Codyssey-teamwork-B2-2-ko-park-chae/refactor/kim-package-structure
+|\ \
+| * \   0fe5189 (origin/refactor/kim-package-structure) Merge branch 'main' of https://github.com/Codyssey-teamwork-B2-2-ko-park-chae/AI-SW-Basic-B2-2 into refactor/kim-package-structure
+| |\ \
+| |/ /
+|/| |
+* | |   b088613 Merge pull request #16 from Codyssey-teamwork-B2-2-ko-park-chae/feature/park-date-utils
+|\ \ \
+| * | | 6404b67 (origin/feature/park-date-utils) docs: add relative time calculation note
+| * | | ebce9a2 Revert "docs: add comment to date operations"
+| * | | b9c1222 docs: add comment to date operations
+| * | | 3e3e44c feat: add experimental timezone parser
+| | * | fdda215 refactor: restructure package modules into src/utils/ directory layout 락 해결
+| |/ /
+|/| |
+* | |   c4fb00c (feature/ko-math-utils) Merge pull request #12 from Codyssey-teamwork-B2-2-ko-park-chae/feature/ko-math-utils
+|\ \ \
+| * | | a30ec57 (origin/feature/ko-math-utils) fix: math_ops에 calculate_average 함수 구현 및 __init__ export 누락 해결
+|/ / /
+| | * 08da39a feat: add slugify and truncate_words utilities
+| |/
+|/|
+* | 4de1655 Merge pull request #11 from Codyssey-teamwork-B2-2-ko-park-chae/feature/park-date-utils
+|\|
+| * 90f1535 fix: __init__ 수정
+| * db00c7a chore: __init__ 내용 추가
+| *   3aa78d8 Merge branch 'main' into feature/park-date-utils
+| |\
+| |/
+|/|
+* |   5373361 Merge pull request #9 from Codyssey-teamwork-B2-2-ko-park-chae/feature/ko-math-utils
+|\ \
+| * | 85de3fc chore:fix templete path
+| * | 6ecbd4b fix:from math_ops, test_math_ops fix path
+|/ /
+* |   e20d18a Merge pull request #3 from Codyssey-teamwork-B2-2-ko-park-chae/feature/chae-string-utils
+|\ \
+| * \   2847fe1 (origin/feature/chae-string-utils) Merge branch 'main' into feature/chae-string-utils
+| |\ \
+| |/ /
+|/| |
+| * | 7f70335 fix:__init__.py string_ops.py 경로 문제 수정 + 기능 보완
+| * | f20ee2f test: test_string_ops.py
+| * | 4d54f50 refactor: string_ops.py
+| * | 2caf766 refactor:__init__.py
+| * | a6dfc14 fix:확장자명 오류 수정
+| * | fab69b0 chore: initialize utils package
+| * | e2e4471 test: test코드 추가
+| * | e94ecf3 string_ops.py 구현
+| | * 0d3eed6 feat: 날짜 및 시간 처리 유틸리티 함수 모듈 추가 (충돌용)
+| | * d73a010 feat: 날짜 및 시간 처리 유틸리티 함수 모듈 추가
+| | * 64d76ad docs: gh_issue_create.md add
+| |/
+|/|
+* |   8adbd3d Merge pull request #5 from Codyssey-teamwork-B2-2-ko-park-chae/feature/ko-math-utils
+|\ \
+| * | 64fa103 add contributing docs
+* | | 4cd72a3 Update issue templates
+* | | 4d5337e Update pull_request_template
+* | | 3789020 Update issue templates
+* | | 0eb35f4 Merge pull request #2 from Codyssey-teamwork-B2-2-ko-park-chae/feature/ko-math-utils
+|\| |
+| |/
+|/|
+| * 80e72e2 feat: delete calc func
+| * 62df08e feat: add missing math utility exports
+| * dcebd66 feat: add sub, multi dev func and add test_math
+| * cbdf63c feat: add power and add  function with type annotations and docstring
+|/
+* 1a21010 chore: initial commit with basic project structure and contributing guides
