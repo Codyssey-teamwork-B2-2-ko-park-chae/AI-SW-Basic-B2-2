@@ -154,8 +154,6 @@ AI-SW-Basic-B2-2/
 
 ## ✅ 과제 제출 확인 항목
 
-**필수 사항 전체 충족은 아직 확인되지 않았습니다.** [프로젝트 전체 검토 보고서](docs/requirements-review.md)에 원문 필수 10개 항목의 판정과 근거를 정리했습니다.
-
 | 필수 산출물·실습 | 확인 위치 및 보완 사항 |
 | --- | --- |
 | 팀 GitHub 저장소 URL | [AI-SW-Basic-B2-2](https://github.com/Codyssey-teamwork-B2-2-ko-park-chae/AI-SW-Basic-B2-2) |

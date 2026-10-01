@@ -2,7 +2,7 @@
 
 우리 팀(고준석, 박영세, 채민성)이 Git 협업 과정에서 마주친 충돌 상황과 이를 해결한 절차 및 학습 내용을 실제 저장소 히스토리에 기반하여 기록합니다.
 
-**점검 기준: 2026-10-01 (한국 시간).** 현재 로컬 브랜치는 `docs/ko-document-update`(HEAD `0b45ff1`)이며, `utils/string-policy.md`도 스페이스·탭·줄바꿈 제거 정책입니다. [전체 요구사항 검토](requirements-review.md)와 [Git 그래프](evidence/git-log.txt)를 함께 참고합니다.
+**점검 기준: 2026-10-01 (한국 시간).** 현재 로컬 브랜치는 `docs/ko-document-update`(HEAD `0b45ff1`)이며, `utils/string-policy.md`도 스페이스·탭·줄바꿈 제거 정책입니다.  [Git 그래프](evidence/git-log.txt)를 함께 참고합니다.
 
 ---
 
