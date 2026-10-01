@@ -2,7 +2,7 @@
 
 우리 팀(고준석, 박영세, 채민성)이 Git 협업 과정에서 마주친 충돌 상황과 이를 해결한 절차 및 학습 내용을 실제 저장소 히스토리에 기반하여 기록합니다.
 
-**점검 기준: 2026-10-01 (한국 시간).** 원격 PR #28의 병합과 최종 정책을 재확인했습니다. 현재 로컬 브랜치는 `ko-string-policy-tabs`(HEAD `9547205`)로, `utils/string-policy.md`의 문구는 스페이스·탭 제거입니다. 아래 PR #28의 스페이스·탭·줄바꿈 제거 결과는 원격 `main`을 기준으로 합니다.
+**점검 기준: 2026-10-01 (한국 시간).** 현재 로컬 브랜치는 `docs/ko-document-update`(HEAD `0b45ff1`)이며, `utils/string-policy.md`도 스페이스·탭·줄바꿈 제거 정책입니다.  [Git 그래프](evidence/git-log.txt)를 함께 참고합니다.
 
 ---
 
@@ -54,7 +54,7 @@ git show 2847fe1:src/__init__.py
 
 ## 충돌 기록 #2: `utils/string-policy.md`의 공백 제거 정책 동일 줄 충돌 (내용 충돌)
 
-이 기록은 원격 저장소의 실제 Issue·PR·커밋을 기준으로 작성했습니다. 기존에 참조한 `conflict-resolution-scenario.md`는 현재 작업 폴더에 없으므로 원격 증빙 링크를 직접 사용합니다. 이번 실습은 동일 줄 내용 충돌이며, 파일 이동/삭제 대 수정 유형의 비자명 충돌로 분류하지 않습니다.
+이 기록은 원격 저장소의 실제 Issue·PR·커밋을 기준으로 작성했습니다. 기존에 참조한 `conflict-resolution-scenario.md`는 현재 작업 폴더에 없으므로 원격 증빙 링크를 직접 사용합니다. 이번 실습은 동일 줄 내용 충돌이며 과제 원문의 같은 hunk 비자명 충돌 기준에 해당합니다. 파일 이동/삭제 대 수정 유형과는 구분합니다.
 
 ### 👥 참여자
 - **후행 정책 작성 및 PR 생성:** 채민성 (`CMS-SUDO7`), `feature/chae-string-policy-edit`
@@ -111,7 +111,7 @@ git show 2847fe1:src/__init__.py
 - **충돌 해결 커밋:** [`3df9461`](https://github.com/Codyssey-teamwork-B2-2-ko-park-chae/AI-SW-Basic-B2-2/commit/3df9461e945d9997df9888159c6444cf985c0244)
 - **최종 병합 PR:** [PR #28](https://github.com/Codyssey-teamwork-B2-2-ko-park-chae/AI-SW-Basic-B2-2/pull/28), 병합 커밋 [`f8f9fd0`](https://github.com/Codyssey-teamwork-B2-2-ko-park-chae/AI-SW-Basic-B2-2/commit/f8f9fd0687c2d6405408ba7c8d01f5acb5ed7f33)
 - **원격 결과 확인:** 조회 시점의 `main`에서 `utils/string-policy.md`에 최종 정책이 있고 충돌 마커는 없습니다. 원격 파일 트리에 구 경로 `docs/conflict-demo/string-policy.md`는 없습니다.
-- **기존 테스트 결과:** PR #28 본문에는 `python -m pytest -q -p no:cacheprovider` 실행 결과 **22 passed in 0.06s**가 보고되어 있습니다. 이는 PR 작성 시점의 보고이며, 이번 점검에서 현재 작업 폴더의 테스트를 다시 실행한 **22 passed in 3.77s**와 구분합니다. 이번 실행 환경과 명령은 [제출 인덱스](../SUBMISSION.md#6-결과물-및-테스트-검증)에 기록합니다.
+- **기존 테스트 결과:** PR #28 본문에는 `python -m pytest -q -p no:cacheprovider` 실행 결과 **22 passed in 0.06s**가 보고되어 있습니다. 이는 PR 작성 시점의 보고이며, 2026-10-01 현재 작업 폴더의 재실행 결과 **22 passed in 0.04s**와 구분합니다. 이번 실행 환경과 명령은 [제출 인덱스](../SUBMISSION.md#6-결과물-및-테스트-검증)에 기록합니다.
 - **검증 범위:** 정책 설명 문서만 수정했으며, PR 본문에 따르면 `strip_all_whitespace` 구현은 여전히 스페이스만 제거합니다. 기존 테스트 통과를 탭·줄바꿈 제거 기능의 구현 완료 증거로 해석하지 않습니다.
 - **증빙의 한계:** 공개 원격 트리와 현재 작업 폴더에서 충돌 안내·편집기·해결 후 화면 캡처를 확인하지 못했습니다. 충돌 발생 근거는 PR 본문·Issue #27의 사전 확인 기록이고, 해결 및 최종 반영 근거는 해결 커밋·부모 해시·승인 리뷰·병합 PR·최종 파일입니다. 실제 캡처가 있다면 별도로 첨부해야 합니다.
 
@@ -148,3 +148,13 @@ git diff 8c0c9cd^2 8c0c9cd -- src/utils/string_ops.py
 ```
 
 위 명령은 확인 방법이며 원본 실행 로그가 아닙니다. 비자명 충돌의 직접 증빙을 완성하려면 당시 충돌 메시지·마커 또는 화면, 실제 해결 명령과 검증 결과를 추가해야 합니다. 정책 문서의 동일 줄 내용 충돌과 구분하여 제출합니다.
+
+
+## 이번 검토의 읽기 전용 충돌 재현
+
+2026-10-01 두 해결 커밋의 실제 부모와 공통 기준으로 `git merge-tree <base> <parent1> <parent2>`를 실행했습니다. 작업 브랜치를 병합하거나 변경하지 않았으며, 이 출력은 당시 원본 수행 로그가 아닌 현재 재현 자료입니다.
+
+- [Export 통합 충돌 재현](evidence/conflict-1-reproduction.txt): `2847fe1`의 부모 `7f70335`, `8adbd3d`; `src/__init__.py` add/add 충돌 확인.
+- [정책 동일 줄 충돌 재현](evidence/conflict-2-reproduction.txt): `3df9461`의 부모 `e8e9b24`, `14c0463`; `utils/string-policy.md` 같은 hunk 충돌 확인.
+
+원문은 같은 hunk를 서로 다르게 수정한 경우도 비자명 충돌로 인정합니다. PR #19의 Rename vs Modify 원본 화면만이 비자명 충돌 증빙 경로인 것은 아닙니다. 당시 실제 해결 절차·검증 결과와 현재 재현 자료는 별도로 기록합니다.

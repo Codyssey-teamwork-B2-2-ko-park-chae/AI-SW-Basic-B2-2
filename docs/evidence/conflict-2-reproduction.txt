@@ -1,0 +1,12 @@
+changed in both
+  base   100644 77780707373a17f8d49b8da869909d9b022771b8 utils/string-policy.md
+  our    100644 b80783f6610f0a16d01b64a82b7f432ecd2c5b00 utils/string-policy.md
+  their  100644 d375d460c3bb1e49acc341cf0e8513ad12fc52c2 utils/string-policy.md
+@@ -1,3 +1,7 @@
+ # 문자열 공백 정책  
+ 
++<<<<<<< .our
+ 공백 제거 정책: 스페이스·탭·줄바꿈 제거  
++=======
++공백 제거 정책: 스페이스·탭 제거
++>>>>>>> .their
