@@ -85,7 +85,6 @@ PR #5는 연결 없음, #16은 `Refs #15`, #20은 종료 키워드 자리표시�
 
 ## 3. 핵심 문서 및 구현
 
-- [필수 요구사항 검토](docs/requirements-review.md): 원문 10개 필수 항목별 판정과 근거
 - [전체 Git 그래프](docs/evidence/git-log.txt): 실제 `git log --oneline --graph --all --decorate` 출력
 - [README.md](README.md): 실제 API, 사용 예시, 환경 설정 및 테스트 안내
 - [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md): 브랜치·커밋·PR·리뷰 협업 규칙
