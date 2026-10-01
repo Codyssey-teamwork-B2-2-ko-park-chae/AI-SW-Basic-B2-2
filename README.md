@@ -150,7 +150,6 @@ AI-SW-Basic-B2-2/
 - [협업 가이드](docs/CONTRIBUTING.md)
 - [충돌 해결 기록](docs/conflict-resolution.md): Export 통합과 공백 정책 동일 줄 내용 충돌, PR #19의 경로 이동·기능 보존 보충 기록. 원본 충돌 증빙과 Git 객체로 확인한 결과를 구분합니다.
 - [Git 트러블슈팅 기록](docs/troubleshooting-log.md): amend/reset/revert/stash의 원본 증빙과 독립 클론 재현을 구분합니다.
-- [필수 요구사항 검토](docs/requirements-review.md): 원문과 파일·Git 이력·GitHub 기록을 대조한 결과.
 - [제출물 인덱스](SUBMISSION.md): 팀원별 PR·리뷰, 최신 이력, 규칙 설정 및 보완 체크리스트.
 
 ## ✅ 과제 제출 확인 항목
